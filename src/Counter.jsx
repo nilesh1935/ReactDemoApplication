@@ -1,14 +1,16 @@
-import React,{useState} from "react";
-import {useUpdateEffect} from 'react-use';
+import React,{useState, useEffect, useRef} from "react";
 
 const Counter = () =>{
 const [value, setValue]= useState(0)
 
-
-
-useUpdateEffect(()=>{
+const isFirstRun = useRef(true);
+useEffect(()=>{
+  if (isFirstRun.current) {
+    isFirstRun.current = false;
+    return;
+  }
   displayAlert()
-},[displayAlert])
+},[value])
 
 function displayAlert(){
   alert(value)
