@@ -1,11 +1,14 @@
-import React,{useState, useEffect} from "react";
+import React,{useState} from "react";
+import {useUpdateEffect} from 'react-use';
 
 const Counter = () =>{
 const [value, setValue]= useState(0)
 
-useEffect(()=>{
+
+
+useUpdateEffect(()=>{
   displayAlert()
-},[value])
+},[displayAlert])
 
 function displayAlert(){
   alert(value)
